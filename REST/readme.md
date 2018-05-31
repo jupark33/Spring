@@ -1,7 +1,7 @@
 REST 관련 메모
 
-POJO에서 JSON 생성 시 무시할 데이터
-@JsonIgnore
+POJO에서 JSON 생성 시 무시할 데이터 <br>
+@JsonIgnore 
 예)    @JsonIgnore
        private String address;
        
