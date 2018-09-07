@@ -1,0 +1,5 @@
+produce 옵션 : response 의 Content-Type을 지정
+consume 옵션 : request를 매핑할 때 어떤 Content-Type을 사용할지 지정
+
+예
+@RequestMapping(value="/hello", method=RequestMethod.POST, produces="application/json")
