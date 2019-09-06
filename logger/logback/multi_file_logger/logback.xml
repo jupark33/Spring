@@ -1,0 +1,52 @@
+<!-- 여러개의 파일에 로그 기록 //-->
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyyMMdd HH:mm:ss.SSS} [%thread] %-3level %logger{5} - %msg %n</pattern>
+        </encoder>
+    </appender>
+	
+    <appender name="FILE-ONE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${MULTILOG_HOME}/logs/one.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${MULTILOG_HOME}/logs/one.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyyMMdd HH:mm:ss.SSS} [%thread] %-3level %logger{5} - %msg %n</pattern>
+        </encoder>
+    </appender>	
+    
+    <appender name="FILE-TWO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${MULTILOG_HOME}/logs/two.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${MULTILOG_HOME}/logs/two.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyyMMdd HH:mm:ss.SSS} [%thread] %-3level %logger{5} - %msg %n</pattern>
+        </encoder>
+    </appender>
+    
+    <logger name="org.springframework" level="INFO"/>
+  
+    <logger name="jdbc" level="OFF"/>
+    <logger name="jdbc.sqlonly" level="OFF"/>
+    <logger name="jdbc.sqltiming" level="DEBUG"/>
+    <logger name="jdbc.audit" level="OFF"/>
+    <logger name="jdbc.resultset" level="OFF"/>
+    <logger name="jdbc.resultsettable" level="DEBUG"/>
+    <logger name="jdbc.connection" level="INFO"/>
+  
+	<logger name="loggertwo" level="DEBUG" additivity="false">
+		<appender-ref ref="STDOUT" />
+  		<appender-ref ref="FILE-TWO"/>
+  	</logger>
+  
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE-ONE" />
+    </root>
+        
+</configuration>
+
+<!-- 사용법 : protected final Log logger = LogFactory.getLog("loggertwo"); //-->
