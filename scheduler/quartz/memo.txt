@@ -1,0 +1,11 @@
+ 
+Spring과 연동 없이 quartz jar 이용하여 Tomcat 시작시 스케줄러 시작하기
+
+1. web.xml
+
+ <load-on-startup>1</load-on-startup>
+
+2. @Component @PostConstruct
+ 컴포넌트 클래스가 생성된 후에 @PostConstruct 메소드를 자동 실행한다.
+
+결론적으로 Tomcat 시작시 자동으로 @PostConstruct 선언된 메소드가 실행된다.
