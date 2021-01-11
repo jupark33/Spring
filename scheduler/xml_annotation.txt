@@ -1,0 +1,20 @@
+// spring scheduler 를 XML과 annotation 동시에 설정
+// fixed-delay 를 XML 과 annotation 동시에 적용시 XML에 설정된 값이 적용됨
+
+// XML
+<bean id="sch" class="arc.mob.sch.Scheduler" />
+<task:scheduled-tasks>
+  <task:scheduled ref="sch" method="scheduleTask" fixed-delay="6000" />
+<task:scheduled-tasks>
+
+// Java
+@Component
+public class Scheduler {
+  
+  protected static Logger logger = LoggerFactory.getLogger(Scheduler.class);
+
+  @Scheduler(fixedDelay=3000)
+  public void scheduleTask() {
+    logget.debug("Schedule.scheduleTask()");
+  }
+}
