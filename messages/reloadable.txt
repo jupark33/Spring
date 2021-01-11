@@ -1,0 +1,40 @@
+// properties 실시간 로딩
+
+// Reloadable.java
+@Configuration
+public class ReloadableMessage {
+
+  @Bean
+  public MessageSource messageSource {
+    ReloadableResourceBundleSource src = new ReloadableResourceBundleMessageSource();
+    src.setBasename("file:D:/home/conf/reloadable");
+    src.setDefaultEncoding("UTF-8");
+    src.setCacheSeconds(5);
+    src.setUseCodeAsDefaultMessqge(true);
+    return src;
+  }
+}
+
+// D:/home/conf/reloadable.properties
+msg.title=menu
+
+// MenuController.java
+
+@Controller
+public class MenuController {
+  
+  @Autowired
+  MessageSource messageSource;
+
+  @RequestMapping(value="menu.mn", method={RequestMethod.GET})
+  public ModelAndView msg(HttpServletRequest req, HttpServletResponse res) {
+
+    String menu = messageSource.getMessage("msg.title", null, Locale.getDefault());
+
+    ModelAndView mav = new ModelAndView();
+    mav.setViewName("menu");
+    mav.addObject("mnt", menu);
+    return mav;
+
+  }
+}
