@@ -1,4 +1,4 @@
-
+// 첫번째 금요일
 <bean id="schJob" class="abc.mt">
 <task:scheduled-tasks>
    <task:scheduled ref="schJob" method="sMt" cron="0 31 13 ? * 6#1"/>
