@@ -21,7 +21,7 @@ public class ListController {
 //            .retrieve().bodyToMono(String.class)
 //            .map(response -> String.format("%s", response));
     
-    // ok
+    // ok , setting for get parameter
     return loadBalancedWebClientBuilder.baseUrl("http://list")
             .filter(lbFunction)
             .build().get()
