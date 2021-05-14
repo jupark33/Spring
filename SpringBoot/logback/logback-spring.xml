@@ -1,0 +1,16 @@
+<!-- Spring Boot 의 기본 Console Pattern 그대로 사용하고 싶을 때 -->
+
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+  
+  <root level="DEBUG">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>
+
