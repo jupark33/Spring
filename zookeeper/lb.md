@@ -3,17 +3,17 @@
 # Zookeeper 에 등록된 서비스로 부하를 분산하여 client 의 요청에 응답한다.
 
 # application.yaml
-'''
+```
 server:
   port:8080
   
 logging:
   level:
     org.apache.zookeeper.CLientCnxn: WARN
-'''
+```
 
 # ZkConsumerApplication.java
-'''
+```
 @SpringBootApplication
 @EnableDiscoveryClient
 public class ZkConsumerApplication {
@@ -21,10 +21,10 @@ public class ZkConsumerApplication {
     SpringApplication.run(ZkConsumerApplication.class, args);
   }
 }
-'''
+```
 
 # HelloWorldClient.java
-'''
+```
 @Configuration
 @EnableFiegnClients
 @EnableDiscoveryClient
@@ -44,10 +44,10 @@ public class HelloWorldClient {
     return theClient.helloWorld();
   }
 }
-'''
+```
 
 # GreetingController.java
-'''
+```
 @RestController
 public class GreetingController {
   
@@ -59,4 +59,4 @@ public class GreetingController {
     return helloWorldClient.HelloWorld();
   }
 }
-'''
+```
