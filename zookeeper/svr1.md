@@ -9,7 +9,7 @@ dependencies {
 ```
 
 # Svr1Application
-'''
+```
 @SpringBootApplication
 @EnableDiscoveryClient
 public class Svr1Application {
@@ -17,10 +17,10 @@ public class Svr1Application {
     SpringApplication.run(Svr1Application.class, args);
   }
 }
-'''
+```
 
 # application.yaml
-'''
+```
 server:
   port:8081
   
@@ -36,9 +36,10 @@ spring:
 logging:
   level:
     org.apache.zookeeper.ClientCnxn: WARN
-    
+```
+
 # HelloController.java
-'''
+```
 @RestController
 public class HelloController {
   @GetMapping("/helloWorld")
@@ -46,5 +47,4 @@ public class HelloController {
     return "1. Hello World"
   }
 }
-'''
-'''
+```
