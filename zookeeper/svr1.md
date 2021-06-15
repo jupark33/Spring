@@ -2,11 +2,11 @@
 # 로드발란싱 대상 서버
 
 # build.grade
-'''
+```
 dependencies {
   implementation 'org.springframework.cloud:spring-cloud-starter-zookeeper-discovery'
 }
-'''
+```
 
 # Svr1Application
 '''
