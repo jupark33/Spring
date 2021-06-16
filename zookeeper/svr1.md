@@ -46,5 +46,10 @@ public class HelloController {
   public String helloWorld() {
     return "1. Hello World"
   }
+  
+  @PostMapping("/list")
+  public String list(@RequestBody List list) {
+    return "1. List " + list.getMac();
+  }
 }
 ```
