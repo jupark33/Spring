@@ -1,4 +1,4 @@
-Spring Boot 2.5.1, 2.5.0
+Spring Boot 2.5.1, 2.5.0, 2.3.12.RELEASE
 ```
 <!-- ok -->
 <properties>
