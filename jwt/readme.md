@@ -81,3 +81,11 @@ I/O 작업을 한다. 30분에 1만번의 요청을 했을 때 1만번은 access
     
 Spring JWT example  
 https://sup2is.github.io/2020/03/05/spring-security-login-with-jwt.html  
+    
+[클라이언트 측면] REST 통신하다가, 서버로부터 accesstoken expired 를 리턴받으면, 서버측에 refreshtoken 요청  
+[클라이언트 측면] refreshtoken을 서버에 요청하여, 결과로서 리턴된 accesstoken 을 이용하여 , 다음번 통신때부터 사용  
+    
+refresh token = access token을 재발급.   
+로그아웃 = access token 과 refresh token 을 모두 만료시킨다.  
+모바일에서 사용시 , 쿠키를 사용할 필요가 없다. request header 에 accesstoken을 넣어주면 된다.  
+세션방식으로그인은 서버 확장시 세션클러스팅 등을 이용해야 하지만 , JWT는 refresh token을 DB에 저장하면 서버 확장이 쉽다.   
